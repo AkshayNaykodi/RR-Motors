@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block 'main' %}
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="{% static 'asset/css/product_details.css' %}">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&family=Oswald:wght@700&family=Roboto:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&display=swap" rel="stylesheet">
+        <link
+            href="https://cdn.jsdelivr.net/npm/remixicon@4.0.0/fonts/remixicon.css"
+            rel="stylesheet"
+        />
+    </head>
+    <body>
+
+        <!-- product_details start -->
+
+        <div class="product_details-container">
+            {% for x in products %}
+            <div class="menuimg-container">
+                <img src="{{x.pimage.url}}" alt="">
+            </div>
+            <div class="details-container">
+                <h2>Vehicle Details</h3>
+                <p>
+                    <h4>{{x.name}}</h4>
+                    <p>
+                        <strong>Price :</strong> Rs. {{x.price}}<br>
+                        {% if x.cat == 1 %}
+                        <p ><strong>Category :</strong>&nbsp;&nbsp;Bike</p>
+                        {% elif x.cat == 2 %}
+                        <p ><strong>Category :</strong>&nbsp;&nbsp;Car</p>
+                        {% else %}
+                        <p ><strong>Category :</strong>&nbsp;&nbsp;Tractor</p>
+                        {% endif %}
+                        <p><strong>Product Detail :</strong>&nbsp;&nbsp;{{x.pdetails}} </p><br>
+                        <a href="/addtocart/{{x.id}}"><button>Add to Cart</button></a>  <a href=""><button>Buy Now</button></a> <a href="/product"><button>See More</button></a>
+                    </p>
+                </p>
+                {% if success %}
+                <div class="alert alert-success" style="color:green">
+                {{success}}
+                </div>
+                {% endif %}
+
+                {% if msg %}
+                <div class="alert alert-danger" style="color:red">
+                {{msg}}
+                </div>
+                {% endif %}
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+
+        <!-- product_details end -->
+
+    </body>
+</html>
+{% endblock 'main'%}

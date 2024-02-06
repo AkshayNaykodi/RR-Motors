@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block 'main' %}
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Product</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="{% static 'asset/css/product.css' %}">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&family=Oswald:wght@700&family=Roboto:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&display=swap" rel="stylesheet">
+        <link
+            href="https://cdn.jsdelivr.net/npm/remixicon@4.0.0/fonts/remixicon.css"
+            rel="stylesheet"
+        />
+    </head>
+    <body>
+
+        <!-- product start -->
+
+        <div class="product-filter-container">
+            <div class="filter-container">
+                
+                <h4>Filter</h4>
+                
+                <p id="filter-by">By Vehicle</p>
+                <p><i class="ri-arrow-right-s-line"></i><a href="/catfilter/1">Bike</a></p>
+                <p><i class="ri-arrow-right-s-line"></i><a href="/catfilter/2">Car</a></p>
+                <p><i class="ri-arrow-right-s-line"></i><a href="/catfilter/3">Tractor</a></p>
+                
+                <p id="filter-by">By Price</p>
+                <p><i class="ri-arrow-right-s-line"></i><a href="/sort/0">Lowest to Highest</a></p>
+                <p><i class="ri-arrow-right-s-line"></i><a href="/sort/1">Highest to Lowest</a></p> <br>
+
+                <form  action="/range">
+                    
+                    <p id="filter-by">By Min & Max value</p>
+                    {% csrf_token %}
+                    <table border="0px " cellspacing="10px">
+                        <tr>
+                            <td>Min Value</td>
+                        </tr>
+                        <tr>
+                            <td><input type="number" name="min" id="Input1" placeholder="min value"></td>
+                        </tr>
+                        <tr>
+                            <td>Max value</td>
+                        </tr>
+                        <tr>
+                            <td><input type="number" name="max" id="Input2" placeholder="max value"></td>
+                        </tr>
+                        <tr>
+                            <td align="center"><input type="submit" name="btn" id="btn" value="Filter"></td>
+                        </tr>
+                    </table>
+                </form>
+            </div>
+            <div class="product-container">
+                <div class="product-container-heading">CHECK OUR <span>SUPERB VEHICLES</span></div>
+                <div class="product-display">
+                    {% for x in products %}
+                    <div class="product-display-card">
+                        <img src="{{x.pimage.url}}" alt="">
+                        <h2>{{x.name}}</h2>
+                        <p id="p1">Rs.{{x.price}}</p>
+                        {% if x.cat == 1 %}
+                        <p class="card-text">Category: Bikes</p>
+                        {% elif x.cat == 2 %}
+                        <p class="card-text">Category: Cars</p>
+                        {% else %}
+                        <p class="card-text">Category: Tractors</p>
+                        {% endif %}
+                        <p>{{x.pdetails}}</p>
+                        <a href="/pdetails/{{x.id}}"><button>See Details</button></a>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+
+        <!-- product end -->
+
+    </body>
+</html>
+{% endblock 'main'%}

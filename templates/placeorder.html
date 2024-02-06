@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block 'main' %}
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title> Your Cart </title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="{% static 'asset/css/cart.css' %}">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&family=Oswald:wght@700&family=Roboto:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&display=swap" rel="stylesheet">
+        <link
+            href="https://cdn.jsdelivr.net/npm/remixicon@4.0.0/fonts/remixicon.css"
+            rel="stylesheet"
+        />
+    </head>
+    <body>
+
+        <!-- Cart start -->
+
+        <div class="cart-main-container">
+            <div class="cart-heading">
+                Your <span>Cart</span>
+            </div>
+            <div class="cart-container">
+                <div class="cart-items-container">
+                    <h3>Your Items</h3>
+                    {% for x in products %}
+                    <div class="cart-items-card">
+                        <img src="{{x.pid.pimage.url}}" alt="">
+                        <p>
+                            <span>{{x.pid.name}}</span><br>
+                            <strong>Price: </strong> Rs. <strong>{{x.pid.price}}</strong>/- <br>
+                            {% if x.pid.cat == 1 %}
+                            <p ><strong>Category :</strong>&nbsp;&nbsp;Bike</p>
+                            {% elif x.pid.cat == 2 %}
+                            <p ><strong>Category :</strong>&nbsp;&nbsp;Car</p>
+                            {% else %}
+                            <p ><strong>Category :</strong>&nbsp;&nbsp;Tractor</p>
+                            {% endif %}
+                            <strong>Quantity:</strong> <a href="/updateqty/0/{{x.id}}"><button class="qtyminus">-</button></a>
+                                        <input type="number" name="" class="qtyinp" value="{{x.qty}}">
+                                      <a href="/updateqty/1/{{x.id}}"><button class="qtyadd">+</button></a> <br>
+                            <p><a href="/removeorder/{{x.id}}"><button class="removebtn">Remove</button></a></p>
+                        </p>
+                    </div>
+                    {% endfor %}
+                </div>
+                <div class="cart-customer-price-details">
+                    <div class="customer-details-container">
+                        <h3>Your Information</h3>
+                        {% for x in products %}
+                        {% if forloop.counter == 1 %}
+                        <p>
+                            <strong>Name:</strong>{{x.uid.username}}<br>
+                            <strong>Username: </strong> {{x.uid.email}} <br>
+                            <strong>email: </strong>{{x.uid.email}}
+                        </p>
+                        {% endif %}
+                        {% endfor %}
+                        <br>
+                        <h3>Order Details</h3>
+                        <p>
+                            <strong>Total ( {{n}} items ) :</strong>&nbsp;&nbsp;Rs. {{total}}<br>
+                            <span style="font-size: 18px; font-weight: bolder;">Total: {{total}}</span>
+                        </p>
+                        <a href="/makepayment"><button class="placeorderbtn">Make Payment</button></a>
+                    </div>
+                </div>
+            </div> 
+        </div>
+        <!-- Cart end -->
+    </body>
+</html>
+{% endblock 'main'%}

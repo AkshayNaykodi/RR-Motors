@@ -1,0 +1,117 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block 'main' %}
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="{% static 'asset/css/main.css' %}">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&family=Oswald:wght@700&family=Roboto:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&display=swap" rel="stylesheet"> 
+        <link
+            href="https://cdn.jsdelivr.net/npm/remixicon@4.0.0/fonts/remixicon.css"
+            rel="stylesheet"
+        />
+    </head>
+    <body>
+        <!-- iintro section start -->
+        <div class="main1-container">
+            <div class="main1-title">
+                <h1>
+                    BOOK YOUR DREAM <p style="color:red;">VEHICLE</p>
+                     
+                </h1>
+                <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati aspernatur illo eveniet at itaque commodi est ut ratione nobis iure nemo tempora vel, similique dicta cumque temporibus excepturi quas quasi?
+                </p>
+                <div class="title-btn">
+                    <a href=""><button>Book a Vehicle</button></a>
+                    <!--<a href="" id="video-a"><i class="ri-play-circle-line"></i>&nbsp;&nbsp;&nbsp;<span>Watch Video</span></a>-->
+                </div>
+            </div>
+            <div class="main1-img">
+                <img src="{% static 'asset\images\Kawasaki Ninja.jpeg' %}" alt="">
+            </div>
+        </div>
+        <!-- Intro section end -->
+
+
+        <!-- About section start -->
+
+        <div class="about-section-container">
+            <div class="heading-container">
+                <span>ABOUT US</span>
+                <h1>LEARN MORE ABOUT US</h1>
+            </div>
+            <div class="section">
+                <div class="section1">
+                    <img src="{% static 'asset\images\rr_logo.png' %}" alt="">
+                    
+                </div>
+                <div class="section2">
+                    <p>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum laudantium quisquam sed sunt repudiandae laborum consequuntur, libero autem sint ut qui fugit officiis natus labore porro cum, veritatis consectetur magnam.
+                    </p>
+                    <ul type="none">
+                        <li><i class="ri-check-double-line"></i>&nbsp;&nbsp;<span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel officia esse aliquam </span></li>
+                        <li><i class="ri-check-double-line"></i>&nbsp;&nbsp;<span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel officia esse aliquam </span></li>
+                        <li><i class="ri-check-double-line"></i>&nbsp;&nbsp;<span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel officia esse aliquam </span></li>
+                    </ul>
+                    <p>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos magnam vero quisquam deserunt aliquam quos dicta officia et fugiat officiis? Modi voluptatibus neque voluptatum minus perspiciatis, facere iusto at nesciunt!
+                    </p>
+                    
+                    <img src="asset\images\about-2.jpg" alt="">
+                </div>
+            </div>
+        </div>
+
+        <!-- About section end -->
+
+
+        <!-- why choose section start -->
+
+        <div class="whysection-container">
+            <div class="card1">
+                <h3>Why Choose RR Motors.?</h3>
+                <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio impedit eligendi numquam sunt dolore iusto natus harum, nesciunt officia eum voluptatum ab quas aut, nam alias sit! A, numquam sint?
+                </p>
+                <button>Learn More</button>
+            </div>
+            <div class="card234">
+                <div class="card">
+                    <span><i class="ri-survey-line"></i></span>
+                    <h4>Corporis voluptates officia eiusmod</h4>
+                    <p>Consequuntur sunt aut quasi enim aliquam quae harum pariatur laboris nisi ut aliquip</p>
+                </div>
+                <div class="card">
+                    <i class="ri-survey-line"></i>
+                    <h4>Corporis voluptates officia eiusmod</h4>
+                    <p>Consequuntur sunt aut quasi enim aliquam quae harum pariatur laboris nisi ut aliquip</p>
+                </div>
+                <div class="card">
+                    <i class="ri-survey-line"></i>
+                    <h4>Corporis voluptates officia eiusmod</h4>
+                    <p>Consequuntur sunt aut quasi enim aliquam quae harum pariatur laboris nisi ut aliquip</p>
+
+                    
+                </div>
+            </div>
+        </div>
+
+        <!-- why choose section End -->
+    </body>
+</html>
+
+
+{% endblock 'main'%}

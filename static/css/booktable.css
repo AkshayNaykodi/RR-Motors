@@ -1,0 +1,102 @@
+*{
+    font-family: 'Montserrat', sans-serif;
+}
+
+
+.tablebook-container{
+    border: none ;
+    width: 100%;
+    margin:auto;
+    margin-top: 95px;
+    height: max-content;
+    padding: 40px 0px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #eeeeee;
+}
+
+.tablebook-container h1{
+    font-size: 13px;
+    color: #757f90;
+    font-weight: 400;
+}
+
+.tablebook-container h2, span{
+    font-size: 48px;
+    font-family: 'Amatic SC', sans-serif;
+    margin: 5px;
+    padding-bottom: 30px;
+}
+
+.tablebook-container span{
+    color: #ce1212;
+}
+
+.tablebook-main-container{
+    width: 95%;
+    padding: 10px;
+    border: none;
+    height: max-content;
+    background-color: #eeeeee;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.tablebook-main-container img{
+    width: 32%;
+    border-radius: 10px  40px;
+    padding: 10px;
+}
+
+.tableform-container{
+    border: none;
+    width: 60%;
+    height: max-content;
+}
+
+#col-3-inp{
+    width: 90%;
+    outline: none;
+    padding: 10px 0px;
+    font-size: 16px;
+    border: 1px solid;
+    border-radius: 8px;
+    padding-left: 5px;
+}
+
+#col-1-inp{
+    width: 100%;
+    border: 1px solid;
+    border-radius: 8px;
+}
+
+#submitbtn-bookatable{
+    padding: 10px 20px;
+    border-radius: 30px;
+    border: 1px solid red;
+    background-color: red;
+    color: white;
+    font-weight: 500;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+#submitbtn-bookatable:hover{
+    background-color: white;
+    color: red;
+}
+
+@media only screen and (max-width: 768px){
+    .tablebook-main-container{
+        flex-direction: column;
+    }
+
+    .tablebook-main-container img{
+        width: 350px;
+    }
+
+    .tableform-container{
+        width: 100%;
+    }
+}
